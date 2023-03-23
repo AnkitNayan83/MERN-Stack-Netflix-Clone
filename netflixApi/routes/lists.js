@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const List = require("../models/List");
+const List = require("../Models/List");
 const verify = require("../verifyUser");
 
 //create list
