@@ -6,7 +6,6 @@ const userRoutes = require("./routes/users");
 const movieRoutes = require("./routes/movie");
 const listRoutes = require("./routes/lists");
 const cors = require("cors");
-const path = require("path");
 
 app.use(cors());
 app.use(express.json());
