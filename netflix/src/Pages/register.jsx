@@ -21,7 +21,6 @@ export const Register = () => {
 
   const handelInput = async (e) => {
     e.preventDefault();
-    console.log(password);
     try {
       setLoading(true);
       const res = await axiosInstance.post("auth/register", {
@@ -89,7 +88,11 @@ export const Register = () => {
         ) : (
           ""
         )}
-        {error ? <span style={{ color: "white" }}>{errorMsg}</span> : ""}
+        {error ? (
+          <span style={{ color: "white" }}>User already exists</span>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

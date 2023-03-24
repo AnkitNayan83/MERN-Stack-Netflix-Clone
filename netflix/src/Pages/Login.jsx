@@ -7,11 +7,13 @@ import "./Login.scss";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch, error, isFetching } = useContext(AuthContext);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handelLogin = (e) => {
     e.preventDefault();
     login({ email, password }, dispatch);
+    console.log(error);
   };
 
   return (
@@ -41,6 +43,12 @@ export const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button onClick={handelLogin}>Sign in</button>
+          {isFetching && <span style={{ color: "white" }}>Loadin ....</span>}
+          {error && (
+            <span style={{ color: "white" }}>
+              Wrong username or password !!!
+            </span>
+          )}
           <span>
             New to netflix
             <Link className="link" to="/register">
